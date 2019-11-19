@@ -41,7 +41,7 @@ CREATE TABLE if not exists `quarto` (
   `nome_quarto` varchar(50) NOT NULL,
   `dimensao_quarto` int NOT NULL DEFAULT '1',
   `capacidade` int NOT NULL DEFAULT '1',
-  `privacidade` bool NOT NULL DEFAULT true,
+  `privado` bool NOT NULL DEFAULT true,
   `senha_quarto` varchar(50),
   `fk_pers_nome` varchar(50) NOT NULL,
   PRIMARY KEY (`nome_quarto`, fk_pers_nome),
