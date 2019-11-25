@@ -99,19 +99,44 @@ where id_movel = 1;
 insert into pet (nome_pet, fk_pers_nome, fk_esp_nome)
 values ('Top', 'perso', 'Topersonifero');
 
-#Coloca o pet em um quarto
+#Coloca o pet 'Top' na posicao 1,1 do quarto 'Quartão' de 'perso'
+update pet
+set fk_quarto_nome = 'Quartão', pet_coord_x = 1, pet_coord_y = 1
+where nome_pet = 'Top' and fk_pers_nome = 'perso';
 
-#Alimenta o pet
+#Aumenta fome do pet, apenas para exemplificar o comando de alimentar
+update pet
+set fome = 2
+where nome_pet = 'Top' and fk_pers_nome = 'perso';
 
-#Retira o pet de um quarto
+#Alimenta o pet 1 vez
+update pet
+set fome = fome -1
+where nome_pet = 'Top' and fk_pers_nome = 'perso';
+
+#Retira o pet 'Top do quarto 'Quartão'
+update pet
+set fk_quarto_nome = null, pet_coord_x = null, pet_coord_y = null
+where nome_pet = 'Top' and fk_pers_nome = 'perso';
+
 
 #-----AÇÕES COLETIVAS
 #Contexto: você está utilizando o personagem "perso" e existe outro personagem "perso2" de outro Usuario
 
-#Cria amizade
+#Cria amizade entre 'perso' e 'perso2'
+insert into amigo_de (fk_pers_nome_1, fk_pers_nome_2)
+values ('perso', 'perso2');
 
-#Retira amizade
+#Retira amizade entre 'perso' e 'perso2'
+delete from amigo_de
+where fk_pers_nome_1 = 'perso' and fk_pers_nome_2 = 'perso2';
 
-#Respeita
+#Respeita, 'perso' ganha +1 de respeito
+update personagem
+set respeito = respeito+1
+where nome = 'perso';
 
-#Troca móveis
+#Troca móveis, 'perso2' passa a ser dono do móvel 'Sofa Toperson'
+update possui
+set fk_pers_nome = 'perso2'
+where fk_pers_nome = 'perso' and fk_id_movel = 1;
