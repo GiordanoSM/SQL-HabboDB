@@ -98,22 +98,3 @@ CREATE TABLE if not exists `amigo_de` (
   FOREIGN KEY (fk_pers_nome_1) REFERENCES personagem(nome) on delete cascade on update cascade,
   FOREIGN KEY (fk_pers_nome_2) REFERENCES personagem(nome) on delete cascade on update cascade
 )ENGINE=InnoDB;
-
-
-#alter table vestimenta add column disney integer not null default 66 after id_vest;
-#alter table vestimenta drop column disney;
-#alter table pet add column fk_quarto_nome varchar(50) after fk_pers_nome;
-#alter table vestimenta modify column cor_prim_vest int(16);
-#alter table pet add foreign key (fk_quarto_nome) references quarto(nome_quarto);
-#alter table vestimenta change column cor_prim cor_prim_vest int(32) not null default 0;
-
-#drop table usuario;
-
-#insert into personagem values ('lordjordan2', 'M', 5, 5, 5, 5, 'giordano@orion.br');
-
-#insert into usuario values ('GiordanoSM', 'giordano@orion.br', 'senha');
-
-#describe vestimenta;
-
-#select * from personagem;
-
